@@ -1,0 +1,264 @@
+# AQEVON Pattern Catalog — machine-readable index
+# Schema: patterns/pattern-schema.yaml
+# This file is the source that will eventually drive the website pattern
+# explorer, search, assessment linkage, and the future architecture decision
+# engine (see future/architecture-decision-engine.md). Every entry here must
+# have a corresponding, complete Markdown pattern card at `path`.
+
+schema_version: "0.1"
+catalog_version: "0.1.0"
+last_reviewed: "2026-08-24"
+
+patterns:
+  - id: K-01
+    name: Grounded Retrieval
+    domain: knowledge
+    classification: E
+    status: research
+    version: "0.1.0"
+    intent: "Ensure every AI-generated claim is traceable to a specific retrieved source, not asserted from model memory."
+    path: patterns/knowledge/K-01-grounded-retrieval.md
+    related_patterns: [K-02, I-03, O-01]
+    anti_patterns: [AP-02, AP-05]
+    last_reviewed: "2026-08-24"
+
+  - id: K-02
+    name: Enterprise Knowledge Fabric
+    domain: knowledge
+    classification: S/P
+    status: research
+    version: "0.1.0"
+    intent: "Provide a governed logical knowledge layer spanning documents, structured data, applications, and systems — not a vector database."
+    path: patterns/knowledge/K-02-enterprise-knowledge-fabric.md
+    related_patterns: [K-01, K-03, C-01, O-01]
+    anti_patterns: [AP-04, AP-02]
+    last_reviewed: "2026-08-24"
+
+  - id: K-03
+    name: Knowledge Federation
+    domain: knowledge
+    classification: S
+    status: research
+    version: "0.1.0"
+    intent: "Query and reconcile knowledge across multiple, independently governed knowledge sources without forcing centralization."
+    path: patterns/knowledge/K-03-knowledge-federation.md
+    related_patterns: [K-02, C-01]
+    anti_patterns: [AP-04]
+    last_reviewed: "2026-08-24"
+
+  - id: I-01
+    name: Model Routing
+    domain: intelligence
+    classification: E
+    status: research
+    version: "0.1.0"
+    intent: "Direct a given request to the most appropriate model based on task complexity, cost, latency, and capability requirements."
+    path: patterns/intelligence/I-01-model-routing.md
+    related_patterns: [I-02, O-02, O-03]
+    anti_patterns: [AP-07]
+    last_reviewed: "2026-08-24"
+
+  - id: I-02
+    name: Context Budgeting
+    domain: intelligence
+    classification: S/P
+    status: research
+    version: "0.1.0"
+    intent: "Deliberately allocate and prioritize what enters a model's context window rather than appending context until it fits."
+    path: patterns/intelligence/I-02-context-budgeting.md
+    related_patterns: [K-01, I-03, I-01]
+    anti_patterns: [AP-05]
+    last_reviewed: "2026-08-24"
+
+  - id: I-03
+    name: Governed Memory
+    domain: intelligence
+    classification: P
+    status: research
+    version: "0.1.0"
+    intent: "Store and retrieve persistent AI context (conversation history, preferences, prior decisions) under the same access-control and provenance discipline as any other enterprise knowledge asset."
+    path: patterns/intelligence/I-03-governed-memory.md
+    related_patterns: [K-02, C-01, C-03]
+    anti_patterns: [AP-05]
+    last_reviewed: "2026-08-24"
+
+  - id: A-01
+    name: Autonomy Gradient
+    domain: autonomy
+    classification: P
+    status: research
+    version: "0.1.0"
+    intent: "Assign each AI capability an explicit, justified level of independent action (A0–A5) rather than a uniform, implicit autonomy setting."
+    path: patterns/autonomy/A-01-autonomy-gradient.md
+    related_patterns: [A-02, C-01, C-02, O-01]
+    anti_patterns: [AP-01, AP-06]
+    last_reviewed: "2026-08-24"
+
+  - id: A-02
+    name: Bounded Agent
+    domain: autonomy
+    classification: S
+    status: research
+    version: "0.1.0"
+    intent: "Scope an agentic capability's tools, knowledge access, autonomy level, and authority explicitly, rather than granting broad implicit access."
+    path: patterns/autonomy/A-02-bounded-agent.md
+    related_patterns: [A-01, C-02, C-03]
+    anti_patterns: [AP-01, AP-06]
+    last_reviewed: "2026-08-24"
+
+  - id: A-03
+    name: Agent Handoff
+    domain: autonomy
+    classification: E/S
+    status: research
+    version: "0.1.0"
+    intent: "Transfer a task between an agent and a human, or between two agents, with full context and accountability preserved across the handoff."
+    path: patterns/autonomy/A-03-agent-handoff.md
+    related_patterns: [A-02, C-01, O-01]
+    anti_patterns: [AP-08]
+    last_reviewed: "2026-08-24"
+
+  - id: C-01
+    name: Human Authorization Boundary
+    domain: control
+    classification: E/S
+    status: research
+    version: "0.1.0"
+    intent: "Define the explicit point(s) at which an AI capability requires human authorization before an action takes effect."
+    path: patterns/control/C-01-human-authorization-boundary.md
+    related_patterns: [A-01, A-03, C-02]
+    anti_patterns: [AP-08, AP-01]
+    last_reviewed: "2026-08-24"
+
+  - id: C-02
+    name: Policy-Bounded Action
+    domain: control
+    classification: S
+    status: research
+    version: "0.1.0"
+    intent: "Constrain what actions an AI capability may take using an enforced, machine-evaluable policy rather than instructions embedded in a prompt."
+    path: patterns/control/C-02-policy-bounded-action.md
+    related_patterns: [A-01, A-02, C-01, C-03]
+    anti_patterns: [AP-03, AP-06]
+    last_reviewed: "2026-08-24"
+
+  - id: C-03
+    name: Identity-Carrying Agent
+    domain: control
+    classification: P
+    status: research
+    version: "0.1.0"
+    intent: "Attribute every agent action to a specific, auditable identity rather than a shared, ambient credential."
+    path: patterns/control/C-03-identity-carrying-agent.md
+    related_patterns: [C-02, O-01, K-02]
+    anti_patterns: [AP-06]
+    last_reviewed: "2026-08-24"
+
+  - id: O-01
+    name: AI Execution Trace
+    domain: operations
+    classification: S
+    status: research
+    version: "0.1.0"
+    intent: "Capture a complete, queryable record of what an AI capability retrieved, reasoned, decided, and did for every execution."
+    path: patterns/operations/O-01-ai-execution-trace.md
+    related_patterns: [O-02, C-03, C-01]
+    anti_patterns: [AP-08]
+    last_reviewed: "2026-08-24"
+
+  - id: O-02
+    name: AI Evaluation Gate
+    domain: operations
+    classification: S
+    status: research
+    version: "0.1.0"
+    intent: "Require an AI capability to pass a defined evaluation threshold before a change is promoted to production."
+    path: patterns/operations/O-02-ai-evaluation-gate.md
+    related_patterns: [O-01, E-02, I-01]
+    anti_patterns: [AP-07]
+    last_reviewed: "2026-08-24"
+
+  - id: O-03
+    name: Graceful AI Degradation
+    domain: operations
+    classification: S/P
+    status: research
+    version: "0.1.0"
+    intent: "Define explicit fallback behavior for an AI capability when its primary model, tool, or knowledge source is unavailable or underperforming."
+    path: patterns/operations/O-03-graceful-ai-degradation.md
+    related_patterns: [I-01, O-01, O-02]
+    anti_patterns: [AP-07]
+    last_reviewed: "2026-08-24"
+
+  - id: E-01
+    name: Knowledge Evolution Loop
+    domain: evolution
+    classification: S/P
+    status: research
+    version: "0.1.0"
+    intent: "Continuously detect, evaluate, and incorporate change in the underlying Enterprise Knowledge Fabric sources."
+    path: patterns/evolution/E-01-knowledge-evolution-loop.md
+    related_patterns: [K-02, K-03, O-01]
+    anti_patterns: [AP-04]
+    last_reviewed: "2026-08-24"
+
+  - id: E-02
+    name: AI Architecture Evolution Loop
+    domain: evolution
+    classification: P
+    status: research
+    version: "0.1.0"
+    intent: "Turn operational and evaluation signal into deliberate architectural change, on a recurring cycle, rather than silent drift."
+    path: patterns/evolution/E-02-ai-architecture-evolution-loop.md
+    related_patterns: [O-01, O-02, E-01]
+    anti_patterns: []
+    last_reviewed: "2026-08-24"
+
+anti_patterns:
+  - id: AP-01
+    name: Agent by Default
+    problem_summary: "Defaulting to agentic architecture without justifying it against simpler alternatives."
+    related_patterns: [A-01, A-02, C-01]
+    path: anti-patterns/AP-01-agent-by-default.md
+
+  - id: AP-02
+    name: RAG Everything
+    problem_summary: "Applying retrieval-augmented generation to problems better solved by deterministic lookup or structured queries."
+    related_patterns: [K-01, K-02]
+    path: anti-patterns/AP-02-rag-everything.md
+
+  - id: AP-03
+    name: Prompt-as-Policy
+    problem_summary: "Encoding authorization or behavioral constraints only as prompt instructions rather than enforced policy."
+    related_patterns: [C-02]
+    path: anti-patterns/AP-03-prompt-as-policy.md
+
+  - id: AP-04
+    name: Vector Database as Knowledge Architecture
+    problem_summary: "Treating a vector index as equivalent to a governed knowledge layer."
+    related_patterns: [K-02, K-03, E-01]
+    path: anti-patterns/AP-04-vector-database-as-knowledge-architecture.md
+
+  - id: AP-05
+    name: Context Dumping
+    problem_summary: "Appending as much context as fits into a model's window instead of deliberately curating it."
+    related_patterns: [I-02, K-01, I-03]
+    path: anti-patterns/AP-05-context-dumping.md
+
+  - id: AP-06
+    name: Autonomous Privilege Creep
+    problem_summary: "An agent's effective authority expands over time without a corresponding, deliberate policy decision."
+    related_patterns: [A-01, A-02, C-02, C-03]
+    path: anti-patterns/AP-06-autonomous-privilege-creep.md
+
+  - id: AP-07
+    name: Single-Model Dependency
+    problem_summary: "Architecting a system around one model provider/version with no routing, fallback, or degradation path."
+    related_patterns: [I-01, O-03, O-02]
+    path: anti-patterns/AP-07-single-model-dependency.md
+
+  - id: AP-08
+    name: Human-in-the-Loop Theater
+    problem_summary: "A human approval step exists in name but not in practice — approvals are rubber-stamped without real ability to catch errors."
+    related_patterns: [C-01, A-03, O-01]
+    path: anti-patterns/AP-08-human-in-the-loop-theater.md

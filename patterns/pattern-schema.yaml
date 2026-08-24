@@ -1,0 +1,77 @@
+# AQEVON Pattern Schema
+# Describes the required shape of an entry in patterns/index.yaml.
+# This is a human- and machine-readable schema definition, not a formal
+# JSON Schema document (kept intentionally simple for v0.x). A future pass
+# may convert this to JSON Schema / YAML Schema once the catalog is stable
+# enough to warrant strict automated enforcement in CI.
+
+schema_version: "0.1"
+
+pattern:
+  id:
+    type: string
+    required: true
+    pattern: "^[A-Z]{1,2}-[0-9]{2}$"
+    description: "Stable pattern ID, e.g. K-02. Never reused or renumbered."
+  name:
+    type: string
+    required: true
+    description: "Pattern name, must exactly match the Markdown file's front-matter and H1."
+  domain:
+    type: string
+    required: true
+    enum: [knowledge, intelligence, autonomy, control, operations, evolution]
+  classification:
+    type: string
+    required: true
+    description: "E, S, P, or a combined form such as S/P or E/S. See framework/terminology.md."
+    enum_pattern: "^(E|S|P)(/(E|S|P))?$"
+  status:
+    type: string
+    required: true
+    enum: [proposed, research, validated, published, mature, deprecated]
+  version:
+    type: string
+    required: true
+    description: "Independent semantic version, e.g. 0.1.0."
+  intent:
+    type: string
+    required: true
+    description: "One-sentence summary, matches the pattern card's Intent section in spirit."
+  path:
+    type: string
+    required: true
+    description: "Relative path to the pattern's Markdown file from the repository root."
+  related_patterns:
+    type: array
+    items: string
+    required: false
+    description: "List of related pattern IDs. Must resolve to real IDs in index.yaml — checked by scripts/validate-framework.py."
+  anti_patterns:
+    type: array
+    items: string
+    required: false
+    description: "List of related anti-pattern IDs (AP-xx). Must resolve to real IDs."
+  last_reviewed:
+    type: string
+    required: true
+    description: "ISO date."
+
+anti_pattern:
+  id:
+    type: string
+    required: true
+    pattern: "^AP-[0-9]{2}$"
+  name:
+    type: string
+    required: true
+  problem_summary:
+    type: string
+    required: true
+  related_patterns:
+    type: array
+    items: string
+    required: false
+  path:
+    type: string
+    required: true
