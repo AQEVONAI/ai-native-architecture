@@ -1,0 +1,28 @@
+# Secrets — never commit
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+*.crt
+*credentials*
+*secret*
+*token*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build / tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local scratch
+/tmp/
+*.tmp
