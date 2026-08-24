@@ -104,7 +104,7 @@ Requires the originating agent's execution state to be structured enough to summ
 
 ## Known Uses / Evidence
 
-Human handoff in escalation-based systems (contact-center "escalate to a human agent" workflows) is long-established practice, predating AI-specific agents. Agent-to-agent handoff protocols are an active, newer area of development across multi-agent orchestration frameworks. AQEVON's contribution is unifying human and agent-to-agent handoff under one pattern with a consistent context-package and accountability requirement. Classified `E/S` — the human-handoff half is established; the agent-to-agent half and the unified framing are AQEVON synthesis.
+**Updated 2026-08-24 following prior-art research (see `research/differentiation.md`):** human handoff in escalation-based systems (contact-center "escalate to a human agent" workflows) is long-established practice, predating AI-specific agents. Agent-to-agent handoff is now also a specifically, directly established pattern: OpenAI's Swarm framework introduced "handoffs" as a named primitive for exactly this transfer-of-control concept, and Microsoft's AutoGen documents an equivalent "Handoffs" design pattern with distributed-runtime support. AQEVON's contribution is unifying the human-handoff and agent-to-agent-handoff halves under one pattern with a consistent context-package and accountability requirement — neither existing treatment found during research combines both under one discipline. Classification confirmed at `E/S` — both halves are independently established; the unified framing spanning both is AQEVON synthesis.
 
 ## Vendor Mappings
 

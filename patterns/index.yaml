@@ -85,9 +85,9 @@ patterns:
   - id: A-01
     name: Autonomy Gradient
     domain: autonomy
-    classification: P
+    classification: S
     status: research
-    version: "0.1.0"
+    version: "0.1.1"
     intent: "Assign each AI capability an explicit, justified level of independent action (A0–A5) rather than a uniform, implicit autonomy setting."
     path: patterns/autonomy/A-01-autonomy-gradient.md
     related_patterns: [A-02, C-01, C-02, O-01]

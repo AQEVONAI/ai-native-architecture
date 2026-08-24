@@ -2,9 +2,9 @@
 id: A-01
 name: Autonomy Gradient
 domain: autonomy
-classification: P
+classification: S
 status: research
-version: 0.1.0
+version: 0.1.1
 last_reviewed: 2026-08-24
 ---
 
@@ -111,7 +111,7 @@ Requires the AI Capability Envelope to be defined for the capability in question
 
 ## Known Uses / Evidence
 
-Autonomy-level scales are established in adjacent domains — most notably SAE's levels of driving automation (0–5) for autonomous vehicles, which is a widely cited external analogy for structuring AI autonomy discussions. AQEVON's A0–A5 scale is a **proposed** adaptation of this style of graduated scale to enterprise AI-native capability specifically, not a direct reuse of the SAE levels' technical definitions, and has not yet been validated against other AI-specific autonomy scales that may already exist in the literature. Evidence required — see `research/prior-art-differentiation-matrix.md`.
+**Updated 2026-08-24 following prior-art research (see `research/differentiation.md`):** autonomy-level scales are established in adjacent domains — most notably SAE's levels of driving automation (0–5) for autonomous vehicles. Directly comparable graduated-autonomy frameworks for agentic AI specifically were also found already in circulation as of this research pass, including a "Levels 1–5" framework for agentic AI (Open Data Science / Datasaur) and the Cloud Security Alliance's January 2026 "Autonomy Levels for Agentic AI," both explicitly drawing the same SAE-levels analogy A-01 uses, and Fluree's independently arrived-at "Six Levels of the Autonomous Enterprise." This is close enough in mechanism (ordered levels, human-oversight requirements that decrease as level increases, SAE-borrowed structure) that A-01 is no longer classified as a AQEVON-original proposal. It is reclassified `S` — synthesis of an approach the broader field has also independently converged on, applied within AQEVON's specific six-domain meta-model and explicitly wired to the `C-01`/`C-02` control mechanisms and `O-01` observability requirements that make a given level defensible, which is where this pattern's actual differentiated contribution now rests.
 
 ## Vendor Mappings
 
@@ -125,3 +125,4 @@ Vendor-neutral; autonomy-level enforcement is typically implemented via the mech
 ## Revision History
 
 - 0.1.0 (2026-08-24) — Initial pattern card. Classification hypothesis: P.
+- 0.1.1 (2026-08-24) — Classification corrected P → S following prior-art research; comparable graduated-autonomy frameworks found in the field. See `research/differentiation.md` for the full finding.
