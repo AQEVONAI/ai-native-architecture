@@ -139,4 +139,4 @@ No single vendor platform, as of this framework's August 2026 research pass, imp
 
 ## Revision History
 
-- 0.1.0 (2026-08-24) — Initial reference architecture. Flagship composite completing the initial 5-reference-architecture set
+- 0.1.0 (2026-08-24) — Initial reference architecture. Flagship composite completing the initial 5-reference-architecture set.
